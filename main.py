@@ -1,11 +1,9 @@
-#%%
+# %%
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import plotly.express as px
 
-from sqlalchemy import create_engine
-
+# %%
 
 def transform_airlines_data(grouping_variable: str) -> pd.DataFrame:
     return (
@@ -40,6 +38,7 @@ def reshape_airlines_data(transformed_data: pd.DataFrame, grouping_variable: str
     return data
 
 
+
 def create_sns_plot(data: pd.DataFrame) -> None:
     sns.set(rc={'figure.figsize': (15, 6)})
     fig1 = sns.barplot(
@@ -52,9 +51,10 @@ def create_sns_plot(data: pd.DataFrame) -> None:
     plt.legend(title="Type of delay")
     plt.show()
 
+
 airlines = pd.read_csv("data/airlines.csv")
 by_airline = reshape_airlines_data(transform_airlines_data("AirportCode"), "AirportCode")
-#%%
+# %%
 
 if __name__ == "__main__":
     by_airline = reshape_airlines_data(transform_airlines_data("AirportCode"), "AirportCode")
