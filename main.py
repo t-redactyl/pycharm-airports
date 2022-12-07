@@ -53,6 +53,7 @@ def create_sns_plot(data: pd.DataFrame) -> None:
     plt.show()
 
 airlines = pd.read_csv("data/airlines.csv")
+by_airline = reshape_airlines_data(transform_airlines_data("AirportCode"), "AirportCode")
 #%%
 
 if __name__ == "__main__":
